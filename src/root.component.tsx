@@ -25,10 +25,9 @@ function Root(props: RootProps) {
   );
 }
 
-export default Root;
-//  openmrsRootDecorator({
-//   featureName: "Implementer Tools",
-//   moduleName: "@openmrs/esm-implementer-tools-app",
-// })(Root);
+export default openmrsRootDecorator({
+  featureName: "Implementer Tools",
+  moduleName: "@openmrs/esm-implementer-tools-app",
+})(Root);
 
 type RootProps = {};
