@@ -1,5 +1,5 @@
 {
-  "name": "@openmrs/esm-implementer-tools",
+  "name": "@openmrs/esm-implementer-tools-app",
   "version": "1.0.0",
   "description": "Coordinates extensions and extension points in the OpenMRS Frontend",
   "main": "dist/openmrs-esm-implementer-tools-app.js",
