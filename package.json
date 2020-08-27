@@ -38,7 +38,6 @@
   "dependencies": {
     "@openmrs/esm-api": "^3.0.0",
     "@types/jest": "^26.0.10",
-    "@types/reach__tabs": "^0.1.0",
     "@types/react": "^16.9.46",
     "@types/systemjs": "^6.1.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
@@ -52,7 +51,6 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@openmrs/react-root-decorator": "^3.2.0",
-    "@reach/tabs": "0.10.0",
     "@testing-library/react": "^10.4.9",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.3.0",
