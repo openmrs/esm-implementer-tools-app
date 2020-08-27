@@ -8,6 +8,7 @@
   background-color: black;
   color: white;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   box-sizing: border-box;
@@ -15,20 +16,17 @@
   overflow-y: auto;
 }
 
-.tabs {
-  width: 100%;
+.tabs button {
+  line-height: 40px;
+  background-color: transparent;
+  color: white;
+  border-bottom: 1px solid #bbb;
+  border-right: 1px solid #bbb;
+  cursor: pointer;
 }
 
-.tabList {
-  position: fixed;
-  height: 4rem;
-  width: 100%;
-  z-index: 1000;
-  background-color: black;
-}
-
-.tabPanels {
-  padding: 1.5rem;
+.tabs button.selectedTab {
+  border-bottom: 2px solid white;
 }
 
 .farRight {

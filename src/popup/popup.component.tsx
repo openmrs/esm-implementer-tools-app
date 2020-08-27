@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@reach/tabs";
-import "@reach/tabs/styles.css";
 import styles from "./popup.styles.css";
 import Configuration from "../configuration/configuration.component";
 import BackendModule from "../backend-dependencies/backend-dependecies.component";
@@ -8,6 +6,7 @@ import BackendModule from "../backend-dependencies/backend-dependecies.component
 export default function Popup(props: DevToolsPopupProps) {
   const [configHasAlert, setConfigHasAlert] = useState(false);
   const [backendHasAlert, setBackendHasAlert] = useState(false);
+  const [visibleTabIndex, setVisibleTabIndex] = useState(0);
 
   useEffect(() => {
     props.setHasAlert(configHasAlert || backendHasAlert);
@@ -15,22 +14,28 @@ export default function Popup(props: DevToolsPopupProps) {
 
   return (
     <div className={styles.popup}>
-      <Tabs className={styles.tabs}>
-        <TabList className={styles.tabList}>
-          <Tab>Configuration</Tab>
-          <Tab>Backend Modules</Tab>
-        </TabList>
-        <TabPanels className={styles.tabPanels}>
-          <TabPanel>
-            <React.Suspense fallback="">
-              <Configuration setHasAlert={setConfigHasAlert} />
-            </React.Suspense>
-          </TabPanel>
-          <TabPanel>
-            <BackendModule setHasAlert={setBackendHasAlert} />
-          </TabPanel>
-        </TabPanels>
-      </Tabs>
+      <nav className={styles.tabs}>
+        <button
+          className={visibleTabIndex == 0 ? styles.selectedTab : ""}
+          onClick={() => setVisibleTabIndex(0)}
+        >
+          Configuration
+        </button>
+        <button
+          className={visibleTabIndex == 1 ? styles.selectedTab : ""}
+          onClick={() => setVisibleTabIndex(1)}
+        >
+          Backend Modules
+        </button>
+      </nav>
+      <div>
+        {visibleTabIndex === 0 && (
+          <Configuration setHasAlert={setConfigHasAlert} />
+        )}
+        {visibleTabIndex === 1 && (
+          <BackendModule setHasAlert={setBackendHasAlert} />
+        )}
+      </div>
       <div className={styles.farRight}>
         <button onClick={props.close} className="omrs-unstyled">
           {"\u24e7"}
