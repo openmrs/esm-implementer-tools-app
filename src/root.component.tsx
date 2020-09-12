@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import openmrsRootDecorator from "@openmrs/react-root-decorator";
+import { UserHasAccessReact } from "@openmrs/esm-api";
 import Popup from "./popup/popup.component";
 import styles from "./implementer-tools.styles.css";
 
@@ -12,7 +13,7 @@ function Root(props: RootProps) {
   }
 
   return (
-    <>
+    <UserHasAccessReact privilege="coreapps.systemAdministration">
       <button
         tabIndex={0}
         onClick={togglePopup}
@@ -21,7 +22,7 @@ function Root(props: RootProps) {
         }`}
       />
       {isPopupOpen && <Popup close={togglePopup} setHasAlert={setHasAlert} />}
-    </>
+    </UserHasAccessReact>
   );
 }
 
