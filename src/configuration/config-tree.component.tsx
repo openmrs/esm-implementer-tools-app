@@ -1,0 +1,34 @@
+import React from "react";
+import EditableValue from "./editable-value.component";
+
+interface ConfigTreeProps {
+  config: { [key: string]: any };
+  path?: string[];
+}
+
+export default function ConfigTree({ config, path = [] }: ConfigTreeProps) {
+  return (
+    <div>
+      {Object.entries(config).map(([key, value]) => {
+        const thisPath = path.concat([key]);
+        return (
+          <div key={key} style={{ margin: `0.25em 0 0.25em ${path.length}em` }}>
+            {isOrdinaryObject(value) ? (
+              <div>
+                {key}: {"{"} <ConfigTree config={value} path={thisPath} />
+              </div>
+            ) : (
+              <div style={{ display: "flex" }}>
+                {key}: <EditableValue path={thisPath} value={value} />
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function isOrdinaryObject(value: any): boolean {
+  return typeof value === "object" && !Array.isArray(value);
+}

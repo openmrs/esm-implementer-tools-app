@@ -1,0 +1,12 @@
+.secretButton {
+  background: none;
+  color: inherit;
+  border: none;
+  font: inherit;
+}
+
+.error {
+  margin-left: 1em;
+  color: orange;
+  font-size: 11pt;
+}
