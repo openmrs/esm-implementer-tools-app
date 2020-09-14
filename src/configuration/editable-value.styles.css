@@ -3,6 +3,7 @@
   color: inherit;
   border: none;
   font: inherit;
+  text-align: left;
 }
 
 .error {

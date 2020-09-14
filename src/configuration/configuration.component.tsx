@@ -46,7 +46,7 @@ export default function Configuration(props: ConfigurationProps) {
           Clear Temporary Config
         </button>
       </div>
-      <div className={`omrs-margin-left-12 ${styles.configContent}`}>
+      <div className={styles.configContent}>
         <ConfigTree config={config} />
       </div>
     </div>
