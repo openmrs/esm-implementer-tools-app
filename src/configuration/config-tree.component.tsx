@@ -9,22 +9,23 @@ interface ConfigTreeProps {
 export default function ConfigTree({ config, path = [] }: ConfigTreeProps) {
   return (
     <div>
-      {Object.entries(config).map(([key, value]) => {
-        const thisPath = path.concat([key]);
-        return (
-          <div key={key} style={{ margin: `0.25em 0 0.25em 3em` }}>
-            {isOrdinaryObject(value) ? (
-              <div>
-                {key}: <ConfigTree config={value} path={thisPath} />
-              </div>
-            ) : (
-              <div style={{ display: "flex" }}>
-                {key}: <EditableValue path={thisPath} value={value} />
-              </div>
-            )}
-          </div>
-        );
-      })}
+      {config &&
+        Object.entries(config).map(([key, value]) => {
+          const thisPath = path.concat([key]);
+          return (
+            <div key={key} style={{ margin: `0.25em 0 0.25em 3em` }}>
+              {isOrdinaryObject(value) ? (
+                <div>
+                  {key}: <ConfigTree config={value} path={thisPath} />
+                </div>
+              ) : (
+                <div style={{ display: "flex" }}>
+                  {key}: <EditableValue path={thisPath} value={value} />
+                </div>
+              )}
+            </div>
+          );
+        })}
     </div>
   );
 }
