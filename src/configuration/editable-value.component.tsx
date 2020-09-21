@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { setTemporaryConfigValue } from "@openmrs/esm-module-config";
 import styles from "./editable-value.styles.css";
 import ValueEditor from "./value-editor";
+import { useGlobalState } from "../global-state";
+import { isEqual } from "lodash";
 
 interface EditableValueProps {
   path: string[];
@@ -12,11 +14,28 @@ export default function EditableValue({ path, value }: EditableValueProps) {
   const [valueString, setValueString] = useState<string | null>(null);
   const [editing, setEditing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [configPathBeingEdited, setConfigPathBeingEdited] = useGlobalState(
+    "configPathBeingEdited"
+  );
+  const activeConfigPath = useRef<HTMLButtonElement>(null);
 
   const closeEditor = () => {
     setEditing(false);
     setError(null);
   };
+
+  const focusOnConfigPathBeingEdited = () => {
+    if (activeConfigPath && activeConfigPath.current) {
+      setEditing(true);
+      activeConfigPath.current.focus();
+    }
+  };
+
+  useEffect(() => {
+    if (isEqual(configPathBeingEdited, path)) {
+      focusOnConfigPathBeingEdited();
+    }
+  }, [configPathBeingEdited]);
 
   return (
     <div style={{ display: "flex" }}>
@@ -40,6 +59,7 @@ export default function EditableValue({ path, value }: EditableValueProps) {
         <button
           className={styles.secretButton}
           onClick={() => setEditing(true)}
+          ref={activeConfigPath}
         >
           {valueString ?? JSON.stringify(value)}
         </button>
