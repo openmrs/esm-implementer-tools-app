@@ -10,3 +10,5 @@ function setupOpenMRS() {
 const importTranslation = () => Promise.resolve();
 
 export { setupOpenMRS, importTranslation };
+
+export { default as ConfigEditButton } from "./config-edit-button/config-edit-button.component";
