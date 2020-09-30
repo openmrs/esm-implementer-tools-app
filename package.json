@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest --passWithNoTests",
     "start": "webpack-dev-server",
+    "start-https": "webpack-dev-server --https",
     "build": "rimraf dist && concurrently -n webpack,typescript 'webpack --mode=production' 'npm run typescript'",
     "typescript": "tsc",
     "prettier": "prettier 'src/**/*' --write",
@@ -36,7 +37,6 @@
   },
   "homepage": "https://github.com/openmrs/esm-implementer-tools#readme",
   "dependencies": {
-    "@openmrs/esm-api": "^3.0.0",
     "@types/jest": "^26.0.10",
     "@types/react": "^16.9.46",
     "@types/systemjs": "^6.1.0",
@@ -50,6 +50,7 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
+    "@openmrs/esm-api": "^3.0.0",
     "@openmrs/react-root-decorator": "^3.2.0",
     "@testing-library/react": "^10.4.9",
     "babel-eslint": "^10.1.0",
