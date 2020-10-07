@@ -21,3 +21,14 @@
   font-family: "monospace";
   font-size: "12pt";
 }
+
+.downloadButton {
+  display: flex;
+  align-items: center;
+}
+
+.downloadLink {
+  display: inline-flex;
+  text-decoration: none;
+  color: #000;
+}

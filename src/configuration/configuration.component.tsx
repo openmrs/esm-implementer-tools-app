@@ -1,9 +1,10 @@
-import React, { useCallback } from "react";
+import React from "react";
 import {
   getDevtoolsConfig,
   getAreDevDefaultsOn,
   setAreDevDefaultsOn,
   clearTemporaryConfig,
+  getTemporaryConfig,
 } from "@openmrs/esm-module-config";
 import Switch from "./switch.component";
 import styles from "./configuration.styles.css";
@@ -20,6 +21,12 @@ export default function Configuration(props: ConfigurationProps) {
   );
   const [isUIEditorActive, setIsUIEditorActive] = React.useState(
     getIsUIEditorEnabled()
+  );
+  const tempConfigObjUrl = new Blob(
+    [JSON.stringify(getTemporaryConfig(), undefined, 2)],
+    {
+      type: "application/json",
+    }
   );
 
   const updateConfig = () => {
@@ -61,6 +68,22 @@ export default function Configuration(props: ConfigurationProps) {
           }}
         >
           Clear Temporary Config
+        </button>
+        <button className={styles.downloadButton}>
+          <a
+            className={styles.downloadLink}
+            download="temporary_config.json"
+            href={window.URL.createObjectURL(tempConfigObjUrl)}
+          >
+            <svg
+              className="omrs-icon"
+              fill="rgba(0, 0, 0, 0.54)"
+              style={{ height: "1rem" }}
+            >
+              <use xlinkHref="#omrs-icon-download" />
+            </svg>
+            Download Temporary Config
+          </a>
         </button>
       </div>
       <div className={styles.configContent}>
