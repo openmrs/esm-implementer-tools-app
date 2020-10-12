@@ -55,7 +55,7 @@
     "@babel/preset-typescript": "^7.10.4",
     "@openmrs/esm-api": "^3.0.0",
     "@openmrs/esm-extensions": "^3.0.0",
-    "@openmrs/react-root-decorator": "^3.2.0",
+    "@openmrs/react-root-decorator": "^3.3.1",
     "@testing-library/react": "^10.4.9",
     "@types/jest": "^26.0.14",
     "@types/react": "^16.9.49",
@@ -85,7 +85,7 @@
     "react-i18next": "^11.7.2",
     "single-spa": "^5.5.5",
     "style-loader": "^1.2.1",
-    "typescript": "^4.0.2",
+    "typescript": "^4.0.3",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
