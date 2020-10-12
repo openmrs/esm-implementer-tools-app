@@ -13,13 +13,19 @@ export default function ConfigTree({ config, path = [] }: ConfigTreeProps) {
         Object.entries(config).map(([key, value]) => {
           const thisPath = path.concat([key]);
           return (
-            <div key={key} style={{ margin: `0.25em 0 0.25em 3em` }}>
+            <div key={key} style={{ margin: `0.25em 0em 0.25em 3em` }}>
               {isOrdinaryObject(value) ? (
                 <div>
                   {key}: <ConfigTree config={value} path={thisPath} />
                 </div>
               ) : (
-                <div style={{ display: "flex" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexFlow: "row wrap",
+                    alignItems: "center",
+                  }}
+                >
                   {key}: <EditableValue path={thisPath} value={value} />
                 </div>
               )}
