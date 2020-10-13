@@ -3,49 +3,49 @@
   "version": "1.0.0",
   "description": "Coordinates extensions and extension points in the OpenMRS Frontend",
   "main": "dist/openmrs-esm-implementer-tools-app.js",
+  "types": "src/index.ts",
+  "license": "MPL-2.0",
+  "homepage": "https://github.com/openmrs/openmrs-esm-implementer-tools#readme",
   "scripts": {
+    "start": "openmrs debug --importmap @",
     "test": "jest --passWithNoTests",
-    "start": "webpack-dev-server",
-    "start-https": "webpack-dev-server --https",
-    "build": "rimraf dist && concurrently -n webpack,typescript 'webpack --mode=production' 'npm run typescript'",
+    "build": "webpack --mode production",
     "typescript": "tsc",
     "prettier": "prettier 'src/**/*' --write",
     "prepublishOnly": "npm run build",
     "lint": "eslint src --ext ts"
   },
-  "directories": {
-    "lib": "dist"
+  "browserslist": [
+    "extends browserslist-config-openmrs"
+  ],
+  "keywords": [
+    "openmrs"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged && concurrently -n lint,test,typescript 'npm run lint' 'npm test' 'npm run typescript'"
     }
   },
-  "browserslist": [
-    "extends browserslist-config-openmrs"
-  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openmrs/esm-implementer-tools.git"
+    "url": "git+https://github.com/openmrs/openmrs-esm-implementer-tools.git"
   },
-  "keywords": [
-    "openmrs"
-  ],
-  "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/openmrs/esm-implementer-tools/issues"
+    "url": "https://github.com/openmrs/openmrs-esm-implementer-tools/issues"
   },
-  "homepage": "https://github.com/openmrs/esm-implementer-tools#readme",
   "dependencies": {
+    "react-hooks-global-state": "^1.0.1",
+    "single-spa-react": "^3.0.1",
+    "systemjs-webpack-interop": "^2.1.2"
+  },
+  "peerDependencies": {
     "@openmrs/esm-api": "^3.0.0",
-    "@openmrs/esm-extension-manager": "^0.2.0",
-    "@types/jest": "^26.0.14",
-    "@types/react": "^16.9.49",
-    "@types/systemjs": "^6.1.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "@openmrs/esm-extensions": "^3.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-hooks-global-state": "^1.0.1",
     "single-spa": "^5.5.5"
   },
   "devDependencies": {
@@ -54,11 +54,16 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@openmrs/esm-api": "^3.0.0",
-    "@openmrs/react-root-decorator": "^3.2.0",
+    "@openmrs/esm-extensions": "^3.0.0",
+    "@openmrs/react-root-decorator": "^3.3.1",
     "@testing-library/react": "^10.4.9",
+    "@types/jest": "^26.0.14",
+    "@types/react": "^16.9.49",
+    "@types/systemjs": "^6.1.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "browserslist-config-openmrs": "^1.0.1",
     "clean-webpack-plugin": "^3.0.0",
     "concurrently": "^5.3.0",
@@ -73,13 +78,15 @@
     "jest": "^26.4.2",
     "jest-cli": "^26.4.2",
     "lodash-es": "^4.17.15",
+    "openmrs": "^3.0.2",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.0.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-i18next": "^11.7.2",
-    "single-spa-react": "^3.0.1",
+    "single-spa": "^5.5.5",
     "style-loader": "^1.2.1",
-    "systemjs-webpack-interop": "^2.1.2",
-    "typescript": "^4.0.2",
+    "typescript": "^4.0.3",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"

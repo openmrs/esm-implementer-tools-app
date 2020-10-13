@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { debounce, isEqual } from "lodash";
-import { setTemporaryConfigValue } from "@openmrs/esm-module-config";
+import { setTemporaryConfigValue } from "@openmrs/esm-config";
 import styles from "./editable-value.styles.css";
 import ValueEditor from "./value-editor";
 import { useGlobalState } from "../global-state";

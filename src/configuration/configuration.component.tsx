@@ -1,17 +1,17 @@
-import React, { useCallback } from "react";
+import React from "react";
 import {
   getDevtoolsConfig,
   getAreDevDefaultsOn,
   setAreDevDefaultsOn,
   clearTemporaryConfig,
-} from "@openmrs/esm-module-config";
+} from "@openmrs/esm-config";
 import Switch from "./switch.component";
 import styles from "./configuration.styles.css";
 import ConfigTree from "./config-tree.component";
 import {
   getIsUIEditorEnabled,
   setIsUIEditorEnabled,
-} from "@openmrs/esm-extension-manager";
+} from "@openmrs/esm-extensions";
 
 export default function Configuration(props: ConfigurationProps) {
   const [config, setConfig] = React.useState({});
