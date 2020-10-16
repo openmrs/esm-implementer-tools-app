@@ -48,8 +48,10 @@
     "@openmrs/esm-config": "^3.0.0",
     "@openmrs/esm-error-handling": "^3.0.0",
     "@openmrs/esm-extensions": "^3.0.0",
+    "i18next": "^19.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-i18next": "^11.7.0",
     "rxjs": "^6.5.3",
     "single-spa": "^4.4.1"
   },
