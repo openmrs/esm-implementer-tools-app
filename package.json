@@ -37,16 +37,21 @@
     "url": "https://github.com/openmrs/openmrs-esm-implementer-tools/issues"
   },
   "dependencies": {
+    "@openmrs/react-root-decorator": "^3.3.1",
+    "lodash-es": "^4.17.15",
     "react-hooks-global-state": "^1.0.1",
     "single-spa-react": "^3.0.1",
     "systemjs-webpack-interop": "^2.1.2"
   },
   "peerDependencies": {
     "@openmrs/esm-api": "^3.0.0",
+    "@openmrs/esm-config": "^3.0.0",
+    "@openmrs/esm-error-handling": "^3.0.0",
     "@openmrs/esm-extensions": "^3.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "single-spa": "^5.5.5"
+    "rxjs": "^6.5.3",
+    "single-spa": "^4.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
@@ -54,8 +59,8 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@openmrs/esm-api": "^3.0.0",
+    "@openmrs/esm-error-handling": "^3.0.0",
     "@openmrs/esm-extensions": "^3.0.0",
-    "@openmrs/react-root-decorator": "^3.3.1",
     "@testing-library/react": "^10.4.9",
     "@types/jest": "^26.0.14",
     "@types/react": "^16.9.49",
@@ -77,14 +82,13 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.4.2",
     "jest-cli": "^26.4.2",
-    "lodash-es": "^4.17.15",
     "openmrs": "^3.0.2",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-i18next": "^11.7.2",
-    "single-spa": "^5.5.5",
+    "single-spa": "^4.4.1",
     "style-loader": "^1.2.1",
     "typescript": "^4.0.3",
     "webpack": "^4.44.1",
